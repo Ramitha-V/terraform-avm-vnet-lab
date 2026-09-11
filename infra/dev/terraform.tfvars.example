@@ -1,0 +1,8 @@
+# Safe example values only. Do not place secrets in this file.
+# Copy to terraform.tfvars for local runs. terraform.tfvars is git-ignored.
+
+subscription_id     = "00000000-0000-0000-0000-000000000000"
+location            = "centralindia"
+resource_group_name = "rg-avm-vnet-dev"
+vnet_name           = "vnet-avm-dev"
+address_space       = ["10.20.0.0/16"]
