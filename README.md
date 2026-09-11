@@ -59,6 +59,11 @@ terraform-avm-vnet-lab/
 - GitHub environments `dev-plan` and `dev-apply`, with required reviewers on `dev-apply`
 - Terraform CLI 1.9 or later, Azure CLI, and Git for local validation
 
+> **Toolchain pin:** the pipeline pins Terraform to `1.15.9`. Terraform `1.10.x`
+> fails `terraform validate` against AVM VNet `0.22.2` because it eagerly
+> evaluates the module's null-guarded `ipam_pools` validation condition. Use
+> `1.15.9` or later for this lab.
+
 ## Identity model
 
 Two identities are used so that plan cannot change infrastructure.

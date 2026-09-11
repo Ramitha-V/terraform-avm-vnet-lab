@@ -19,7 +19,7 @@ env:
   TF_IN_AUTOMATION: "true"
   TF_INPUT: "false"
   TF_WORKING_DIR: infra/dev
-  TERRAFORM_VERSION: 1.10.5
+  TERRAFORM_VERSION: 1.15.9
 
 jobs:
   plan:
