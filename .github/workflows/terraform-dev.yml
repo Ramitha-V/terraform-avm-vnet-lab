@@ -80,13 +80,13 @@ jobs:
           tflint --chdir=$TF_WORKING_DIR --format compact
 
       - name: Security scan with Trivy
-        uses: aquasecurity/trivy-action@v0.33.1
-        with:
-          scan-type: config
-          scan-ref: infra/dev
-          severity: HIGH,CRITICAL
-          exit-code: "1"
-          skip-dirs: infra/dev/.terraform
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/src:ro" \
+            aquasec/trivy:0.65.0 config /src/infra/dev \
+            --severity HIGH,CRITICAL \
+            --exit-code 1 \
+            --skip-dirs "/src/infra/dev/.terraform"
 
       - name: Terraform plan
         run: |
